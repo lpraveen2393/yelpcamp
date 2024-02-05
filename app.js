@@ -42,7 +42,6 @@ app.get('/campgrounds', async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
-
 app.get('/campgrounds/new', (req, res) => {
     res.render('campground/new')
 })
