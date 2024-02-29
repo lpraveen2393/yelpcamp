@@ -24,10 +24,17 @@ const sample = array => array[Math.floor(Math.random() * array.length)];
 const seeddb = async () => {
     await Campground.deleteMany({});
     for (let i = 0; i < 50; i++) {
+        const price = Math.floor(Math.random() * 20) + 10;
         const random1000 = Math.floor(Math.random() * 1000);
         const camp = new Campground({
             location: `${cities[random1000].city},${cities[random1000].state}`,
-            title: `${sample(descriptors)} ${sample(places)}`
+            title: `${sample(descriptors)} ${sample(places)}`,
+            image: 'https://source.unsplash.com/collection/483251',
+            description: 'lorem quasi saepe quaerat, sed dolores laudantium deleniti soluta? Eaque eos illo, nostrum nemo corrupti modi repellat',
+            price: price
+
+
+
         });
         await camp.save();
     }
