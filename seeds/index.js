@@ -40,6 +40,8 @@ const seeddb = async () => {
     }
 }
 
-seeddb();
+seeddb().then(() => {
+    mongoose.connection.close();
+})
 
 // Rest of your code...
